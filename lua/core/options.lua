@@ -41,3 +41,8 @@ vim.o.scrolloff = 10 -- Minimal number of screen lines to keep above and below t
 -- instead raise a dialog asking if you wish to save the current file(s)
 vim.o.confirm = true
 
+vim.o.expandtab = true
+vim.o.smartindent = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+
