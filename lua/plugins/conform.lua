@@ -29,6 +29,7 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
+      java = { 'clang-format' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
@@ -42,5 +43,10 @@ return {
       javascriptreact = { 'prettierd', 'prettier', 'eslint_d', 'eslint', stop_after_first = true },
       vue = { 'prettierd', 'prettier', 'eslint_d', 'eslint', stop_after_first = true },
     },
+    formatters = {
+      ["clang-format"] = {
+        args = { "--style", "{BasedOnStyle: Google, IndentWidth: 4}" },
+      },
+    }
   },
 }
