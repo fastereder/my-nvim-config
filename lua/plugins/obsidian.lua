@@ -28,6 +28,9 @@ return {
         path = "~/vaults/work",
       },
     },
+    ui = {
+      enabled = false,
+    }
 
     -- see below for full list of options 👇
   },
