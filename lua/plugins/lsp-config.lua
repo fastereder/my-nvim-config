@@ -246,6 +246,11 @@ return {
     require('mason-lspconfig').setup {
       ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
       automatic_installation = false,
+      automatic_enable = {
+        exclude = {
+          'jdtls',
+        },
+      },
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
@@ -330,5 +335,12 @@ return {
     vim.lsp.config('vtsls', vtsls_config)
     vim.lsp.config('vue_ls', vue_ls_config)
     vim.lsp.enable { 'vtsls', 'vue_ls' }
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'java',
+      callback = function(args)
+        require'jdtls.jdtls_setup'.setup()
+      end
+    })
   end,
 }
